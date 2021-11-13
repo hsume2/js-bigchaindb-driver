@@ -3,7 +3,7 @@
 // Code is Apache-2.0 and docs are CC-BY-4.0
 
 import 'core-js/features/object/entries'
-import decamelize from 'decamelize'
+import { snakeCase } from 'snake-case'
 import queryString from 'query-string'
 
 /**
@@ -17,7 +17,7 @@ import queryString from 'query-string'
  * invoked on each of the dictionary's keys before being stringified into the query-parameter
  * string.
  *
- * By default `transform` is `decamelize`, so a dictionary of the form:
+ * By default `transform` is `snakeCase`, so a dictionary of the form:
  *
  *   {
  *      page: 1,
@@ -29,10 +29,10 @@ import queryString from 'query-string'
  *   ?page=1&page_size=10
  *
  * @param  {Object}   obj                    Query params dictionary
- * @param  {function} [transform=decamelize] Transform function for each of the param keys
+ * @param  {function} [transform=snakeCase] Transform function for each of the param keys
  * @return {string}                          Query param string
  */
-export default function stringifyAsQueryParam(obj, transform = decamelize) {
+export default function stringifyAsQueryParam(obj, transform = snakeCase) {
     if (!obj || typeof obj !== 'object' || !Object.keys(obj).length) {
         return ''
     }

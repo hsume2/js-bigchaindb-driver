@@ -15,6 +15,7 @@
     "types"
   ],
   "main": "./dist/node/index.js",
+  "react-native": "./dist/node/index.js",
   "browser": "./dist/browser/bigchaindb-driver.cjs2.min.js",
   "types": "./types/index.d.ts",
   "sideEffects": false,
@@ -33,7 +34,8 @@
     "release-major": "release-it major --non-interactive",
     "prepublishOnly": "npm run build",
     "report-coverage": "nyc report --reporter=lcov > coverage.lcov && codecov",
-    "doc": "documentation build src/index.js -f md -o API.md -g --markdown-toc"
+    "doc": "documentation build src/index.js -f md -o API.md -g --markdown-toc",
+    "prepare": "npm run build"
   },
   "devDependencies": {
     "@ava/babel": "^1.0.1",
@@ -78,15 +80,15 @@
     "buffer": "^6.0.3",
     "clone": "^2.1.2",
     "core-js": "^3.9.1",
-    "crypto-conditions": "2.1.2",
-    "decamelize": "^5.0.0",
+    "crypto-conditions": "https://github.com/hsume2/js-crypto-conditions.git#fc08d72",
     "es6-promise": "^4.2.8",
     "fetch-ponyfill": "^7.1.0",
     "js-sha3": "^0.8.0",
     "json-stable-stringify": "^1.0.1",
     "query-string": "^6.14.1",
+    "snake-case": "^3.0.4",
     "sprintf-js": "^1.1.2",
-    "tweetnacl": "^1.0.3"
+    "tweetnacl": "https://github.com/hsume2/tweetnacl-js.git#180e189"
   },
   "keywords": [
     "bigchaindb",
